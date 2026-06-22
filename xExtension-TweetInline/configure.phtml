@@ -1,0 +1,56 @@
+<?php
+/** @var TweetInlineExtension $this */
+$showMedia      = $this->getUserConfigurationValue('show_media', true);
+$showQuoted     = $this->getUserConfigurationValue('show_quoted', true);
+$cacheTtl       = (int) $this->getUserConfigurationValue('cache_ttl', 604800);
+$fetchTimeout   = (int) $this->getUserConfigurationValue('fetch_timeout', 8);
+$maxTweetsEntry = (int) $this->getUserConfigurationValue('max_tweets_entry', 25);
+?>
+<form action="<?= _url('extension', 'configure', 'e', urlencode($this->getName())) ?>" method="post">
+	<input type="hidden" name="_csrf" value="<?= FreshRSS_Auth::csrfToken() ?>" />
+
+	<div class="form-group">
+		<label class="group-name" for="show_media">Afficher les médias</label>
+		<div class="group-controls">
+			<input type="checkbox" id="show_media" name="show_media" value="1" <?= $showMedia ? 'checked' : '' ?> />
+			<label for="show_media">Inclure les photos et vignettes vidéo des tweets.</label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="group-name" for="show_quoted">Afficher les tweets cités</label>
+		<div class="group-controls">
+			<input type="checkbox" id="show_quoted" name="show_quoted" value="1" <?= $showQuoted ? 'checked' : '' ?> />
+			<label for="show_quoted">Résoudre récursivement les tweets cités (1 niveau).</label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="group-name" for="cache_ttl">Durée du cache (secondes)</label>
+		<div class="group-controls">
+			<input type="number" id="cache_ttl" name="cache_ttl" min="0" value="<?= $cacheTtl ?>" />
+			<p class="help">Durée de conservation d'un tweet résolu. 604800 = 7 jours. 0 = pas d'expiration.</p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="group-name" for="fetch_timeout">Délai d'attente réseau (secondes)</label>
+		<div class="group-controls">
+			<input type="number" id="fetch_timeout" name="fetch_timeout" min="1" max="30" value="<?= $fetchTimeout ?>" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="group-name" for="max_tweets_entry">Tweets max par article</label>
+		<div class="group-controls">
+			<input type="number" id="max_tweets_entry" name="max_tweets_entry" min="1" max="100" value="<?= $maxTweetsEntry ?>" />
+			<p class="help">Plafond de sécurité sur le nombre de tweets résolus par article.</p>
+		</div>
+	</div>
+
+	<div class="form-group form-actions">
+		<div class="group-controls">
+			<button type="submit" class="btn btn-important">Enregistrer</button>
+		</div>
+	</div>
+</form>

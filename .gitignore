@@ -1,0 +1,3 @@
+# Runtime tweet cache (created under the extension's user data dir at runtime)
+**/tweet-cache/
+.DS_Store
