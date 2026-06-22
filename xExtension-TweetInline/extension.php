@@ -5,8 +5,8 @@ declare(strict_types=1);
 /**
  * Tweet Inline — FreshRSS extension.
  *
- * Many sites (e.g. lephoceen.fr "En direct des RS") embed tweets as "lazy"
- * blockquotes that contain only a `data-tweet-id` and a bare link; the actual
+ * Many sites embed tweets as "lazy" blockquotes that contain only a
+ * `data-tweet-id` and a bare link; the actual
  * tweet text/media is injected client-side by Twitter's widgets.js, which a
  * feed reader never runs. This extension detects those tweet references in an
  * article's HTML and replaces each one with the inlined tweet content
@@ -98,7 +98,7 @@ final class TweetInlineExtension extends Minz_Extension {
 			return $token;
 		};
 
-		// 1) Lazy blockquotes (the lephoceen.fr case).
+		// 1) Lazy "twitter-tweet" blockquotes.
 		$html = preg_replace_callback(
 			'#<blockquote[^>]*class="[^"]*twitter-tweet[^"]*"[^>]*>.*?</blockquote>#is',
 			function (array $m) use (&$count, $maxTweets, $store): string {

@@ -1,7 +1,7 @@
 {
 	"name": "Tweet Inline",
 	"author": "Romain Boulay",
-	"description": "Replaces empty/lazy Twitter (X) blockquotes and bare tweet links in articles with the inlined tweet content: author, text, and media. Fetches from Twitter's public first-party syndication endpoint (no API key or login required), with an automatic fxtwitter fallback. Designed for feeds like lephoceen.fr 'En direct des RS'.",
+	"description": "Replaces empty/lazy Twitter (X) blockquotes and bare tweet links in articles with the inlined tweet content: author, text, and media. Fetches from Twitter's public first-party syndication endpoint (no API key or login required), with an automatic fxtwitter fallback.",
 	"version": "0.1.0",
 	"entrypoint": "TweetInline",
 	"type": "system"

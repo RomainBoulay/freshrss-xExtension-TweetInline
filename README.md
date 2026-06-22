@@ -6,8 +6,8 @@ author, text, and media.
 
 ## Why
 
-Some sites (e.g. **lephoceen.fr** "En direct des RS") publish tweets as *lazy*
-blockquotes that contain only a tweet id and a bare link:
+Some sites publish tweets as *lazy* blockquotes that contain only a tweet id
+and a bare link:
 
 ```html
 <blockquote class="twitter-tweet" data-tweet-id="2068818671909179503">
@@ -81,7 +81,6 @@ Settings → Extensions → Tweet Inline → ⚙:
   original embed/link is left untouched.
 - Each tweet fetch is a server-side request from your FreshRSS host to Twitter's
   CDN (or FxTwitter). No reading-habit data or credentials are sent.
-- Tested against real lephoceen.fr "En direct des RS" articles.
 
 ## License
 
